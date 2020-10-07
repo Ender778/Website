@@ -1,0 +1,172 @@
+{
+    "modal-1": {
+        "Real Time Analytics Monitor": {
+            "slide-1": {
+                "title": "NA",
+                "description": "I created an enterprise level real time analytics monitor that utilized IBM Core Metrics API to pull real time metrics of eCommerce and site traffic. I used asynchronous functions in Javascript to manage timing, AJAX to pull the data and the D3 Library for Visualization.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "AJAX",
+                    "JQuery",
+                    "D3"
+                ]
+            }
+        }
+    },
+    "modal-2": {
+        "Landing Pages & Microsites": {
+            "slide-1": {
+                "title": "Landing Page",
+                "description": "Among the many landing pages I’ve made, the example above produced more sessions and sales than the stardard product pages. Handed off to me by a designer using Adobe XD, I translated every last pixel to be a 1:1 representation.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "AJAX",
+                    "JQuery",
+                    "Bootstrap"
+                ]
+            },
+            "slide-2": {
+                "title": "Microsite",
+                "description": "Created new microsites, some of which included tabbed navigation, download sections, custom filters, card layouts, modal pop-ups, and carousels. I’ve used bootstrap when needed by the environment, and flexbox/css grid as my go to options.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "Bootstrap"
+                ]
+            }
+        }
+    },
+    "modal-3": {
+        "Redesigns & Custom Components": {
+            "slide-1": {
+                "title": "Custom Component",
+                "description": "This navigation utilized a JSON library to hold all product information by using AJAX to bring up all categories, sub categories, product names and links on demand. The frame was set up in HTML and the actual content was built in JS based on the AJAX calls.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "JSON",
+                    "AJAX"
+                ]
+            },
+            "slide-2": {
+                "title": "Custom Component",
+                "description": "Created a custom search algorithm that dedupes type ahead results and accounts for other criteria that vanilla JQuery UI did not. This search also pulls from a JSON file using AJAX.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "JSON",
+                    "AJAX"
+                ]
+            },
+            "slide-3": {
+                "title": "Custom Component",
+                "description": "This was a custom YouTube playlist widget that had the playlist to the right, the video to the left and the title and sub title up top. When expanding the category to the right and then clicking on the video, the clicked video title and sub title up top would update and the new video would load on the left.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery"
+                ]
+            },
+            "slide-4": {
+                "title": "Redesign (Old vs New)",
+                "description": "The old design on the left was completely recoded to create the page on the right, meeting the designer's specifications that were created in Adobe XD. This also utilized the JSON and search bar components mentioned previously.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "JSON",
+                    "AJAX"
+                ]
+            },
+            "slide-5": {
+                "title": "Redesign (Old vs New)",
+                "description": "The old design at the top was hard coded into the system and I was unable to scrap it and start over. So instead I had to become a CSS target wizard to completely change the look and feel of the whole page resulting in the page shown at the bottom.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery"
+                ]
+            }
+        }
+    },
+    "modal-4": {
+        "Project Tracker": {
+            "slide-1": {
+                "title": "NA",
+                "description": "This was a project tracker web application I built from the ground up. I had many technical system limitations and zero control of the server, so I had to get creative, like storing the DB in excel files. Not ideal, but this system gave me lemons and I made some VBScript lemonade.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "Bootstrap",
+                    "AJAX",
+                    "VBScript"
+                ]
+            },
+            "slide-2": {
+                "title": "NA",
+                "description": "All filters worked, custom checkboxes were created, and all numbers displayed were being pulled with AJAX from the csv file. Once you changed the status of an open request and the designer tagged to it, you were than given the option to save your changes and then the VBScript would write into the relevant csv files.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "Bootstrap",
+                    "AJAX",
+                    "VBScript"
+                ]
+            }
+        }
+    },
+    "modal-5": {
+        "Form Request with Email Send": {
+            "slide-1": {
+                "title": "NA",
+                "description": "Created a form with conditionals and error checks. The form would also give tooltip descriptions on hover for ease of business use. Once submitted, I used our internal mailing client to auto send an email with all the filled in fields. The date and user name was also auto populated in the email send.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "VBScript"
+                ]
+            },
+            "slide-2": {
+                "title": "NA",
+                "description": "This slide depicts one of the hover over effects which is used to show a business user how to enter a file location.",
+                "techused": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "JQuery",
+                    "VBScript"
+                ]
+            }
+        }
+    },
+    "modal-6": {
+        "Independent Projects": {
+            "slide-1": {
+                "title": "Word Search",
+                "description": "Just for fun, I created this wordsearch program which automatically generates a new puzzle for you based on the 10 words you enter in. The words will be randomly placed in any direction and the board is dynamically sized based on the largest word given.",
+                "techused": [
+                    "Java"
+                ]
+            }
+        }
+    }
+}
