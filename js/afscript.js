@@ -61,7 +61,10 @@ function openModal(el){
         modal.classList.add("modal-show-content")
     }, 50);
     document.body.style.overflow = "hidden";
-    document.body.style.margin = "0 16px 0 0";
+    document.body.style.margin = "0 10px 0 0";
+    document.getElementById("site-navigation").style.left = "-10px";
+    document.getElementById("site-navigation").style.paddingLeft = "5px";
+    document.getElementById("site-navigation").style.paddingRight = "5px";
 }
 
 // Close modal
@@ -99,6 +102,7 @@ function resetmodal() {
     }
     document.body.style.overflow = "auto";
     document.body.style.margin = "0";
+    resetNav();
 }
 
 function fillModalInformation(data, idnum) {
@@ -305,3 +309,209 @@ function projectTileHoverExit(el) {
     var showproject = "projects-tile-" + hoverid;
     document.getElementById(showproject).classList.remove("projects-tile-hover");
 }
+
+// Contact Me AJAX logic
+var timoutTime = 0;
+window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    var form = document.getElementById("my-form");
+    var button = document.getElementById("my-form-button");
+    var status = document.getElementById("my-form-status");
+
+    // Success and Error functions for after the form is submitted
+    function success() {
+      form.reset();
+      button.style = "display: none ";
+      status.innerHTML = "Thank you for contacting me!";
+      timoutTime = 1500;
+      closeModalContact()
+    }
+
+    function error() {
+      status.innerHTML = "Oops! There was a problem.";
+    }
+
+    // handle the form submission event
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+});
+  
+// helper function for sending an AJAX request
+function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status === 200) {
+            success(xhr.response, xhr.responseType);
+        } else {
+            error(xhr.status, xhr.response, xhr.responseType);
+        }
+    };
+    xhr.send(data);
+}
+
+// ========== Modal Contact Logic ========== //
+var modalContact = document.getElementById('afmodal-contact');
+var modalContactcontent = document.getElementById('modal-contact-content-container');
+var modalContactBtn = document.querySelectorAll('.contactme');
+var closeContactBtn = document.getElementsByClassName('closeBtn')[1];
+var modalContactheader = document.getElementById("modal-content-header");
+
+// Apply onclick event
+for (const button of modalContactBtn)
+{
+    button.onclick = function() {openModalContact(this)};
+}
+
+
+// Add click listener to both the close button and clicking outside the modal
+closeContactBtn.addEventListener('click', closeModalContact);
+window.addEventListener('click', outsideClickContact);
+
+// Open modal
+function openModalContact(el) {
+    modalContact.style.display = 'flex';
+    window.setTimeout(function() {
+        modalContact.classList.add("modal-show-content")
+    }, 50);
+    document.body.style.overflow = "hidden";
+
+    // Since there is no scroll bar on mobile/tablet, this will only apply to desktop
+    if(screen.width > 1100)
+    {
+        document.body.style.margin = "0 10px 0 0";
+        document.getElementById("site-navigation").style.left = "-10px";
+        document.getElementById("site-navigation").style.paddingLeft = "5px";
+        document.getElementById("site-navigation").style.paddingRight = "5px";
+    }
+}
+
+// Close contact modal
+function closeModalContact() {
+    window.setTimeout(function() {
+        window.setTimeout(function() {
+            modalContact.style.display = 'none';
+        }, 200);
+        modalContact.classList.remove("modal-show-content")
+        document.body.style.overflow = "auto";
+        document.body.style.margin = "0";
+        resetNav();
+    }, timoutTime);
+}
+
+// Click outside contact modal
+function outsideClickContact(e) {
+    if(e.target == modalContact)
+    {
+        window.setTimeout(function() {
+            modalContact.style.display = 'none';
+        }, 200);
+        modalContact.classList.remove("modal-show-content")
+        document.body.style.overflow = "auto";
+        document.body.style.margin = "0";
+        resetNav();
+    }
+}
+
+function resetNav() {
+    document.getElementById("site-navigation").style.left = "0px";
+    document.getElementById("site-navigation").style.paddingLeft = "0px";
+    document.getElementById("site-navigation").style.paddingRight = "0px";
+}
+
+// Navbar navigation 
+const links = document.querySelectorAll("a.nav-link");
+const navsections = document.querySelectorAll(".nav-section");
+
+for (const link of links) {
+  link.addEventListener("click", clickHandler);
+  if(link.id == "navhome") {link.classList.add('nav-active');}
+}
+
+function clickHandler(e) {
+    e.preventDefault();
+    var clickedid = this.id;
+    const href = this.getAttribute("href");
+    var offsetTop = document.querySelector(href).offsetTop;
+
+    if(clickedid == "navskills")
+    {
+        if(screen.width > 1100) 
+        {
+            offsetTop = offsetTop - 190;
+        }
+        else
+        {
+            offsetTop = offsetTop - 80;
+        }
+    }
+    scroll({
+        top: offsetTop,
+        behavior: "smooth"
+    });
+
+    for (const link of links) {
+        link.classList.remove('nav-active');
+    }
+    this.classList.add('nav-active');
+}
+
+// Add event listener and function for highlighting the upper nav on scroll
+let scrollpos = 0;
+window.addEventListener('scroll', function(e) {
+    scrollpos = window.scrollY;
+    var skillsoffset = 190;
+    if(screen.width > 1100) 
+    {
+        skillsoffset = 190;
+    }
+    else
+    {
+        skillsoffset = 80;
+    }
+    for (const section of navsections) {
+        var sectionscroll = section.offsetTop;
+
+        // Check to see if we're at the bottom of the page
+        if ((window.innerHeight + window.scrollY) > document.body.scrollHeight) 
+        {
+            for (const link of links) {
+                link.classList.remove('nav-active');
+                if(link.getAttribute('href') == ("#" + section.id)) 
+                {
+                    link.classList.add('nav-active');
+                }
+            }
+        }
+
+        // Check to see if we are at skills section, since it's offset
+        if (scrollpos >= (sectionscroll - skillsoffset) && section.id == "skills") 
+        {
+            for (const link of links) {
+                link.classList.remove('nav-active');
+                if(link.getAttribute('href') == ("#" + section.id)) 
+                {
+                    link.classList.add('nav-active');
+                }
+            }
+        }
+
+        // Checking to see if we are at any other sections like home and projects
+        if (scrollpos >= sectionscroll)
+        {
+            for (const link of links) {
+                link.classList.remove('nav-active');
+                if(link.getAttribute('href') == ("#" + section.id)) 
+                {
+                    link.classList.add('nav-active');
+                }
+            }
+        }
+    }
+});
