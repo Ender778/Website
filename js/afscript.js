@@ -230,7 +230,10 @@ var allbuttons = '';
 function buildCarousel(slidenums) {
     carousellength = slidenums;
     document.getElementsByClassName('projectslide')[0].classList.add("active");
-    document.getElementsByClassName('modal-slide-button')[0].classList.add("active");
+    if(carousellength != 1)
+    {
+        document.getElementsByClassName('modal-slide-button')[0].classList.add("active");
+    }
     allslides = document.getElementsByClassName('projectslide');
     allbuttons = document.getElementsByClassName('modal-slide-button');
 }
